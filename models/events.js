@@ -51,6 +51,7 @@ Events.attachSchema(
     },
     createdAt: {
       type: Date,
+      autoValue: function() { if(this.isInsert) return new Date() },
       denyUpdate: true
     }
   })
