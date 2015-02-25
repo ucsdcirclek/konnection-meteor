@@ -1,30 +1,44 @@
 <template name="header">
-    <div class="center aligned {{isActive}} header-wrapper">
-        <h1 class="huge center aligned main ui header">
-            {{constant 'name'}}
-            <div class="sub header">
-                by <a class="unstyled link" href="http://matteodem.github.io/meteor-boilerplate">@matteodem</a>
-            </div>
-        </h1>
-        <button class="basic ui resize icon button"><i class="{{iconClass}} icon"></i></button>
+  <!--<div class="centered-navigation-wrapper">-->
 
-        {{#if showLogin}}
-        <div class="login-wrapper {{animateClass}} animated">
-            {{#if currentUser}}
-            <div class="actions-wrapper">
-                {{#if currentUser.username}}
-                <div class="hello">Hi {{currentUser.username}}!</div>
-                {{/if}}
-                <div class="ui fluid purple log-out button">
-                    <i class="sign out icon"></i>
-                    Log out
-                </div>
-            </div>
-            {{else}}
-            {{> atForm }}
-            {{/if}}
-        </div>
-        {{/if}}
-    </div>
+    <!--<a href="" class="centered-navigation-menu-button" id="js-mobile-menu">MENU</a>-->
+
+    <!--<div class="nav">-->
+      <!--<div id="corner-left"></div>-->
+      <!--<ul class="centered-navigation-menu">-->
+        <!--<li class="nav-link"><a href="{{ pathFor '/' }}">home</a></li>-->
+        <!--<li class="nav-link more"><a href="javascript:void(0)">about</a>-->
+          <!--<ul class="submenu">-->
+            <!--<li><a ui-sref="circlek.general">Circle K</a></li>-->
+            <!--<li><a ui-sref="division">Division</a></li>-->
+            <!--<li><a ui-sref="club.general">Club</a></li>-->
+          <!--</ul>-->
+        <!--</li>-->
+        <!--<li class="nav-link"><a ui-sref="calendar">calendar</a></li>-->
+        <!--<li class="nav-link more"><a ui-sref="district">district</a>-->
+          <!--<ul class="submenu">-->
+            <!--<li><a ui-sref="district">About</a></li>-->
+            <!--<li><a target="_blank" href="http://dcon.cnhcirclek.org/">DCON</a></li>-->
+            <!--<li><a target="_blank" href="http://ftc.cnhcirclek.org/">FTC</a></li>-->
+            <!--<li><a target="_blank" href="http://www.cnhcirclek.org/event/7-crazy_kompetition_for_infants_south/">CKI-->
+              <!--South</a></li>-->
+          <!--</ul>-->
+        <!--</li>-->
+        <!--<li class="nav-link more"><a target="_blank" href="http://www.kiwanis.org/">kiwanis</a>-->
+          <!--<ul class="submenu">-->
+            <!--<li><a target="_blank" href="http://www.kiwanisclublajolla.org/">La Jolla Kiwanis</a></li>-->
+            <!--<li><a target="_blank" href="http://www.sdsucirclek.com">SDSU Circle K</a></li>-->
+          <!--</ul>-->
+        <!--</li>-->
+        <!--<li class="nav-link"><a ui-sref="contact">contact</a></li>-->
+        <!--<li ng-if="!currentUser" class="nav-link"><a ui-sref="login.info">login</a></li>-->
+        <!--<li ng-if="!currentUser" class="nav-link"><a ui-sref="login.register">register</a></li>-->
+        <!--<li ng-if="currentUser" class="nav-link"><a ui-sref="settings.account">settings</a></li>-->
+
+      <!--</ul>-->
+      <!--<div id="corner-right"></div>-->
+    <!--</div>-->
+
+  <!--</div>-->
 </template>
 
