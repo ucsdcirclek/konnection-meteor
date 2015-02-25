@@ -34,7 +34,7 @@ Events.attachSchema(
         }
       }
     },
-    closeTime: {dde
+    closeTime: {
       type: Date,
       autoValue: function() {
         if (this.isInsert) {
