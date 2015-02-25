@@ -4,7 +4,7 @@
 # but you can also edit it by hand.
 
 meteor-platform
-less
+fourseven:scss
 jquery
 underscore
 accounts-password
@@ -17,9 +17,9 @@ fastclick
 zimme:iron-router-active
 manuelschoebel:ms-seo
 browser-policy
-useraccounts:semantic-ui
+useraccounts:unstyled
 natestrauser:animate-css
 dburles:collection-helpers
 meteorhacks:fast-render
-
-nooitaf:semantic-ui
+wolves:bourbon
+wolves:neat
