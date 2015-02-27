@@ -1,157 +1,153 @@
 <template name="home">
-    <div class="ui four column main-content features grid">
-        {{#each feature}}
-            <div class="center aligned column">
-                <a href="{{path}}" class="ui unstyled no-hover-styles no-underline link icon header">
-                    <span class="headline">{{text}}</span>
-                    <i class="{{color}} {{icon}} boilerplate-feature icon"></i>
-                </a>
-            </div>
-        {{/each}}
-    </div>
+  <div class="slider">
+    <ul>
+      <li style="background: url(images/slider/key2college.jpg); background-position: center; background-size: cover;">
+        <div class="content">
+          <div class="text">
+            <h2>Key 2 College</h2>
+            <br/>
 
-    <div id="packages" class="main-content padding-wrapper">
-        <div class="ui fitted horizontal icon divider"><i class="magic icon"></i></div>
-        <div class="ui two column stackable grid">
-            <div class="middle aligned row">
-                <div class="center aligned column">
-                    <div class="center aligned icon-wrapper">
-                        <i class="circular massive red archive icon"></i>
-                    </div>
-                </div>
-                <div class="column">
-                    <h3 class="large ui header">Atmosphere packages <div class="sub header">Don't reinvent the wheel</div></h3>
-                    <p>
-                        There are the a lot of
-                        <a href="https://github.com/matteodem/meteor-boilerplate/blob/master/.meteor/packages">helpful packages</a>
-                        to get you started asap. Some of them are.</p>
-                    <div class="ui list">
-                        {{#each package}}
-                            <a href="{{path}}" class="item no-underline link">
-                                <i class="archive icon"></i>
-                                {{name}}
-                            </a>
-                        {{/each}}
-                    </div>
-                    <div class="ui info message">
-                        <div class="header">
-                            Removed Packages
-                        </div>
-                        "insecure" and "autopublish" are removed by default!
-                    </div>
-                </div>
-            </div>
+            <p>UCSD Circle K International cordially invites you to its annual Key2College, an event for high school
+              students to learn more about the magical world of college here at UC San Diego. You can expect a helpful
+              workshops, tours, performances and cool raffle prizes!</p>
+
+            <p><a
+                target="_blank"
+                href="https://www.facebook.com/events/1759938677564708/">Visit the event page</a></p>
+          </div>
         </div>
-    </div>
+      </li>
 
-    <div id="console-tool" class="main-content padding-wrapper">
-        <div class="ui fitted horizontal icon divider"><i class="magic icon"></i></div>
-        <div class="ui two column stackable grid">
-            <div class="middle aligned row">
-                <div class="column">
-                    <h3 class="large ui header">orion-cli <div class="sub header">Be even faster</div></h3>
-                    <p>
-                        To speed up a lot of simple repetitive tasks, there is the <a href="https://github.com/matteodem/orion-cli">orion-cli</a> that can be used with this boilerplate.<br />
-                        Simply use <code>orion generate {template}</code> to generate files in the project root.
-                    </p>
-                    <div class="ui list">
-                        {{#each consoleCommand}}
-                        <div class="item">
-                            <i class="right triangle icon"></i>
-                            <div class="content">
-                                <div class="header">{{command}}</div>
-                                <div class="description">{{description}}</div>
-                            </div>
-                        </div>
-                        {{/each}}
-                    </div>
-                    <p>
-                        There is also support for different profiles, as shown <a href="https://github.com/matteodem/meteor-boilerplate#available-profiles-cofeescript-and-es6">here</a>.
-                    </p>
-                </div>
-                <div class="center aligned column">
-                    <div class="center aligned icon-wrapper">
-                        <i class="circular massive code icon"></i>
-                    </div>
-                </div>
-            </div>
+      <li style="background: url(images/slider/aboard.png); background-position: center; background-size: cover;">
+        <div class="content">
+          <div class="text">
+            <h2>Apply for Appointed Board</h2>
+            <br/>
+
+            <p>Make a difference in the club and an even bigger difference in the community by applying to be on board!
+              As a member of board, the future of our club is in YOUR hands!</p>
+
+            <p><a
+                target="_blank"
+                href="http://bit.ly/ucsdckiaboardapp">Download the application</a></p>
+          </div>
         </div>
+      </li>
+
+    </ul>
+  </div>
+
+  <div id="content">
+    <div id="main">
+      <ul class="week">
+        <li class="featured">
+          <h5>Featured</h5>
+
+          <p class="title">Alpha Project Food Distribution</p>
+
+          <p class="date">February 22</p>
+
+          <p class="info">
+            The Alpha Project is a nonprofit, human services organization that serves over 4,000 men, women, and
+            children each day. We will assist them by serving dinner to the homeless!
+          </p>
+        </li>
+        <li>
+          <h5>{{displayDay}}</h5>
+          <ul>
+              {{#each events}}
+                <li>
+                  <p class="title"><a ui-sref="event({id: event.id})">{{title}}</a></p>
+
+                  <p class="date">{{formatDate startTime ' h:mma to'}}{{formatDate endTime 'h:mma'}}</p>
+                </li>
+              {{/each}}
+          </ul>
+        </li>
+        <li>
+          <h5>{{displayDay 1}}</h5>
+          <ul>
+              {{#each events 1}}
+                <li>
+                  <p class="title"><a ui-sref="event({id: event.id})">{{title}}</a></p>
+
+                  <p class="date">{{formatDate startTime ' h:mma to'}}{{formatDate endTime 'h:mma'}}</p>
+                </li>
+              {{/each}}
+          </ul>
+        </li>
+        <li>
+          <h5>{{displayDay 2}}</h5>
+          <ul>
+              {{#each events 2}}
+                <li>
+                  <p class="title"><a ui-sref="event({id: event.id})">{{title}}</a></p>
+
+                  <p class="date">{{formatDate startTime ' h:mma to'}}{{formatDate endTime 'h:mma'}}</p>
+                </li>
+              {{/each}}
+          </ul>
+        </li>
+      </ul>
+
+      <h2>Announcements</h2>
+
+      <div id="announcements">
+          {{#each posts}}
+            <article>
+              <h3>{{title}}</h3>
+
+              <p class="date">{{formatDate date}}</p>
+
+              <p>
+                  {{body}}
+              </p>
+            </article>
+          {{/each}}
+      </div>
+
     </div>
 
-    <div id="html5" class="main-content padding-wrapper">
-        <div class="ui fitted horizontal icon divider"><i class="magic icon"></i></div>
-        <div class="ui two column stackable grid">
-            <div class="middle aligned row">
-                <div class="center aligned column">
-                    <div class="center aligned icon-wrapper">
-                        <i class="circular massive orange html5 icon"></i>
-                    </div>
-                </div>
-                <div class="column">
-                    <h3 class="large ui header">HTML5 and CSS3 <div class="sub header">Semanticness FTW!</div></h3>
-                    <p>
-                        Semantic UI and Normalize.CSS are both added to increase the use of semantic tags and classes.
-                        It's better for both developers and designers if there's readable html code instead of non
-                        understandable string combinations.
-                    </p>
-                    <h4>CSS classes in Bootstrap 3 and Semantic UI - for Contrast</h4>
-                    <table class="ui basic table">
-                        <thead>
-                        <tr>
-                            <th>What</th>
-                            <th>Bootstrap 3</th>
-                            <th>Semantic UI</th>
-                        </tr>
-                        </thead>
-                        <tbody>
-                        {{#each semanticElement}}
-                        <tr>
-                            <td>{{what}}</td>
-                            <td>{{withBootstrap}}</td>
-                            <td>{{withSemanticUI}}</td>
-                        </tr>
-                        {{/each}}
-                        </tbody>
-                    </table>
-                </div>
-            </div>
-        </div>
-    </div>
+    <div id="sidebar">
+      <div>
+          {{#if currentUser}}
+            <h2>Welcome, {{currentUser.profile.firstName}}!</h2>
+            <!--<ul>-->
+            <!--<li><button ui-sref="settings">Account Settings</button></li>-->
+            <!--</ul>-->
+          {{else}}
+            <h2>Welcome!</h2>
 
-    <div id="structure" class="main-content padding-wrapper">
-        <div class="ui fitted horizontal icon divider"><i class="magic icon"></i></div>
-        <div class="ui two column stackable grid">
-            <div class="middle aligned row">
-                <div class="column">
-                    <h3 class="large ui header">Folder structure <div class="sub header">seperate your concerns</div></h3>
-                    <p>
-                        There's already a structure provided for your meteor app, with some content filled in to see
-                        where you can place what kind of code or where what code is generated. Here's the default structure
-                        as a list:
-                        <br />
-                        <ul>
-                            {{#each folder}}
-                            <li>
-                                {{root}}
-                                {{#if children}}
-                                <ul>
-                                    {{#each children}}
-                                    <li>{{this}}</li>
-                                    {{/each}}
-                                </ul>
-                                {{/if}}
-                            </li>
-                            {{/each}}
-                        </ul>
-                    </p>
+            <p>
+              If you have account, please <a href="{{pathFor login}}">login</a>. If you do not, you are invited to <a
+                href="{{pathFor login}}">register</a>!
+            </p>
+          {{/if}}
+      </div>
+      <button ui-sref="membership" class="pulse-repeat red">Become a Member</button>
+      <br/>
+      <br/>
+      <a class="button red" href="http://bit.ly/ucsdckiaboardapp" target="_blank">Apply for Appointed Board</a>
 
-                </div>
-                <div class="center aligned column">
-                    <div class="center aligned icon-wrapper">
-                        <i class="circular massive unordered list icon"></i>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
+      <h2 style="margin-top: 10px;">Social Media</h2>
+
+      <div class="social-media">
+        <a href="https://facebook.com/ucsdcirclek"><i class="fa fa-3x fa-facebook-square"></i></a>
+        <a href="http://instagram.com/ucsdcirclek"><i class="fa fa-3x fa-instagram"></i></a>
+        <a href="http://ucsdcirclek.tumblr.com/"><i class="fa fa-3x fa-tumblr-square"></i></a>
+      </div>
+
+      <br/>
+
+      <a class="twitter-timeline" href="https://twitter.com/UCSDCircleK" data-widget-id="562119802261495808">Tweets by
+        @UCSDCircleK</a>
+      <script>!function(d, s, id) {
+        var js, fjs = d.getElementsByTagName(s)[0], p = /^http:/.test(d.location) ? 'http' : 'https';
+        if (!d.getElementById(id)) {
+          js = d.createElement(s);
+          js.id = id;
+          js.src = p + "://platform.twitter.com/widgets.js";
+          fjs.parentNode.insertBefore(js, fjs);
+        }
+      }(document, "script", "twitter-wjs");</script>
 </template>
