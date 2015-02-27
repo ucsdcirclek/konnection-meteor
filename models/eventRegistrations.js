@@ -12,7 +12,7 @@ EventRegistrations.attachSchema(
     },
     roles: {
       type: [String],
-      allowValues: ['driver', 'photographer', 'writer'],
+      allowedValues: ['driver', 'photographer', 'writer'],
       maxCount: 3,
       optional: true
     },
