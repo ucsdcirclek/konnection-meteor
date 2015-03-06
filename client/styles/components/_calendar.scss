@@ -46,6 +46,11 @@
 //  }
 //
 
+  .fc-content {
+    padding: 0 1px;
+    word-wrap: break-word;
+  }
+
   button:hover {
     color: #333;
     background-color: #e6e6e6;

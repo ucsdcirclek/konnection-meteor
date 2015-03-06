@@ -26,7 +26,9 @@ Template['calendar'].helpers({
           return {
             title: it.title,
             start: it.startTime,
-            end: it.endTime
+            end: it.endTime,
+            backgroundColor: '#8B1C23',
+            borderColor: '#8B1C23'
           };
         });
 
