@@ -10,16 +10,8 @@ body {
   background-repeat: no-repeat;
   background-color: $light-green;
   height: 100%;
-  min-width: em(640);
+  min-width: em(700);
   margin: 0 auto;
-}
-
-div[ui-view].ng-enter {
-  animation: fadeIn .25s;
-}
-
-div[ui-view].ng-leave {
-  animation: zoomOut .3s;
 }
 
 #container{
