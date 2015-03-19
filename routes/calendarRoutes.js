@@ -1,8 +1,14 @@
-Router.route('/events', function () {
+Meteor.subscribe('events');
+Meteor.subscribe('eventRegistrations');
+
+Router.route('/events', function() {
   this.render('calendar');
 });
 
-Router.route('/events/:_id', function () {
-  var event = Events.findOne({_id: this.params_id});
-  this.render('event', {data: event});
+Router.route('/events/:_id', function() {
+  this.render('event', {
+    data: function() {
+      return Events.findOne(new Meteor.Collection.ObjectID(this.params._id));
+    }
+  });
 });

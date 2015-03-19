@@ -1,3 +1,175 @@
 <template name="event">
-    <p>Template event</p>
+  <div id="event">
+
+    <div id="navigator" style="border-bottom-left-radius: 10px;">
+        {{#each upcomingWeekEvents}}
+          <ul>
+            <h3>{{formatDate date 'dddd M/D'}}</h3>
+              {{#each events}}
+                <li><a ui-sref="event({id: event.id})">{{title}}</a></li>
+              {{/each}}
+          </ul>
+          <br/>
+        {{/each}}
+      <button ui-sref="calendar">Back to Calendar</button>
+    </div>
+
+
+    <div id="viewport">
+
+      <div class="head">
+
+        <div class="event-info">
+          <h2>{{title}}</h2>
+          <ul>
+            <li><strong>{{formatDate startTime "dddd, MMMM Do, YYYY"}}</strong></li>
+            <li><strong>{{formatDate startTime " h:mma to "}}{{formatDate endTime 'h:mma'}}</strong></li>
+              {{#if eventLocation}}<li>{{meetingLocation}}</li>{{/if}}
+              {{#if meetingLocation}}<li>Meet at <strong>{{meetingLocation}}</strong></li>{{/if}}
+          </ul>
+        </div>
+
+          {{#if open}}
+            <div class="signup">
+                {{#if currentUser}}
+                    {{#unless registered}}
+                      <button id="register-btn"><i class="fa fa-check"></i> Signup
+                      </button>
+                    {{else}}
+                      <button id="unregister-btn"><i class="fa fa-close"></i> Signup</button>
+                    {{/unless}}
+                {{else}}
+                    {{#unless registered}}
+                      <div class="modal">
+                        <label for="guestRegistration">
+                          <div class="btn"><i class="fa fa-check"></i> Guest Signup</div>
+                        </label>
+                        <input class="modal-state" id="guestRegistration" type="checkbox"/>
+
+                        <div class="modal-window">
+                          <div class="modal-inner">
+                            <label class="modal-close" for="guestRegistration"></label>
+
+                            <h1>Sign up as a guest</h1>
+
+                            <p class="intro">We're glad you've decided to check us out! Please leave us with some
+                              contact
+                              information in case we need to contact you regarding our event!</p>
+
+                            <p class="body">
+
+                            <form id="registerGuest">
+                              <label>First Name</label>
+                              <input type="text" name="firstName">
+                              <label>Last Name</label>
+                              <input type="text" name="lastName">
+                              <label>Phone Number</label>
+                              <input type="tel" name="phone">
+
+                              <button type="submit">
+                                Signup
+                              </button>
+                            </form>
+                            </p>
+                          </div>
+                        </div>
+                      </div>
+                    {{/unless}}
+                {{/if}}
+            </div>
+          {{/if}}
+
+      </div>
+
+      <div class="left">
+        <div class="description">
+            {{{description}}}
+        </div>
+
+        <div class="registrations">
+          <h4>Who's going</h4>
+          <ul>
+              {{#each registrations}}
+                  {{#with regUser.profile}}
+                <li class="avatar small">
+
+                  <div class="avatar-wrapper">
+                    <img src="{{avatar}}">
+
+                    <!--<div class="overlay">-->
+                        <!--{{#each roles}}-->
+                            <!--{{#if guest}}<i ng-if="registration.guest_status" class="fa fa-male"></i>{{/if}}-->
+                            <!--{{#if driver}}<i class="fa fa-car"></i>{{/if}}-->
+                            <!--{{#if photographer}}<i ng-if="registration.photographer_status"-->
+                                                   <!--class="fa fa-camera"></i>{{/if}}-->
+                            <!--{{#if writer}}<i ng-if="registration.writer_status" class="fa fa-pencil"></i>{{/if}}-->
+                        <!--{{/each}}-->
+                    <!--</div>-->
+                  </div>
+
+
+                  <p class="name">{{name}}</p>
+
+                    <!--{{#if isAuthorized}}-->
+                      <!--<p class="name">{{phone}}</p>-->
+                    <!--{{/if}}-->
+                </li>
+                      {{/with}}
+              {{/each}}
+          </ul>
+        </div>
+      </div>
+
+
+      <div class="right">
+        <div class="chair avatar large">
+          <h5>Person of Contact</h5>
+          <br/>
+
+          <div class="image">
+
+          </div>
+            {{#with contact}}
+          <img src="{{avatar}}">
+
+          <p class="name">{{firstName}} {{lastName}}</p>
+
+          <p class="info">{{phone}}</p>
+                {{/with}}
+        </div>
+          {{#if registered}}
+            <div>
+              <h6>Volunteer to be a:</h6>
+
+              <div class="btn-group">
+                <button id="drive-btn" type="button"><i class="fa fa-car"></i> Driver</button>
+                <br/>
+                <button id="photograph-btn" type="button"><i class="fa fa-camera"></i>
+                  Photographer
+                </button>
+                <br/>
+                <button id="write-btn" type="button"><i class="fa fa-pencil"></i> Writer</button>
+              </div>
+            </div>
+          {{/if}}
+
+
+          <!--{{#if isAuthorized}}-->
+            <!--<div>-->
+              <!--<h6>Admin</h6>-->
+
+              <!--<div class="btn-group">-->
+                <!--<button id="chair-btn" type="button" ng-click="chair()"> Chair Event</button>-->
+                <!--<br/>-->
+                <!--<button id="edit-btn" type="button" ui-sref="admin.events.update({id: event.id})">-->
+                  <!--Edit Event-->
+                <!--</button>-->
+              <!--</div>-->
+            <!--</div>-->
+          <!--{{/if}}-->
+      </div>
+
+    </div>
+
+  </div>
 </template>
