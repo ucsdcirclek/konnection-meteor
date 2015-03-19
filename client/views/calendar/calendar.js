@@ -27,12 +27,12 @@ Template['calendar'].helpers({
             title: it.title,
             start: it.startTime,
             end: it.endTime,
+            url: '/events/' + it._id,
             backgroundColor: '#8B1C23',
             borderColor: '#8B1C23'
           };
         });
 
-        console.log(events);
         callback(events);
       }
     }

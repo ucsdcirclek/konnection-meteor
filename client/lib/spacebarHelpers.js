@@ -34,9 +34,11 @@ Template.registerHelper('formatDate', function(date, format) {
     return moment(date).format(format);
 });
 
-Template.registerHelper('displayDay', function(daysAway) {
+Template.registerHelper('displayDay', function(daysAway, format) {
+  format = format || 'dddd';
+
   if(arguments.length == 0)
-    return moment().format('dddd');
+    return moment().format(format);
   else
-    return moment().add(daysAway, 'd').format('dddd');
+    return moment().add(daysAway, 'd').format(format);
 });
